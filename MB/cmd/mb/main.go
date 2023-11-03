@@ -1,5 +1,8 @@
 package main
 
+// TODO: Concurrency when modifying a map
+// TODO: Does Golang repository work if it is not in root?
+
 import (
 	"bytes"
 	"fmt"
