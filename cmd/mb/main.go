@@ -1,6 +1,5 @@
 package main
 
-// TODO: Concurrency when modifying a map
 // TODO: Dockerize
 import (
 	"net/http"

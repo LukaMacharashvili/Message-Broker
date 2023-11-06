@@ -6,6 +6,9 @@ import (
 )
 
 func (h *Handlers) Register(w http.ResponseWriter, r *http.Request) {
+	h.ConsumersMapMutex.Lock()
+	defer h.ConsumersMapMutex.Unlock()
+
 	topic := r.URL.Query().Get("topic")
 
 	if topic == "" {

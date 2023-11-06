@@ -18,7 +18,9 @@ func (h *Handlers) Publish(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Printf("Topic: %s\n", topic)
+	h.ConsumersMapMutex.Lock()
 	consumers := h.ConsumersMap[topic]
+	h.ConsumersMapMutex.RUnlock()
 	fmt.Printf("Consumers: %v\n", consumers)
 	for _, consumer := range consumers {
 		go func(consumer string, body []byte) {
