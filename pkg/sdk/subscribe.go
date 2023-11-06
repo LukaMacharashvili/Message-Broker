@@ -3,11 +3,11 @@ package sdk
 import "net/http"
 
 type MBClient struct {
-	Host string
+	host string
 }
 
 func (mbClient *MBClient) Subscribe(topic string, consumer string, handlerPath string) error {
-	urlString := mbClient.Host + "/register?topic=" + topic
+	urlString := mbClient.host + "/register?topic=" + topic
 	req, err := http.NewRequest("GET", urlString, nil)
 	if err != nil {
 		return err
